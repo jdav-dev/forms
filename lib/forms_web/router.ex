@@ -17,7 +17,9 @@ defmodule FormsWeb.Router do
   scope "/", FormsWeb do
     pipe_through :browser
 
-    live "/", PageLive, :index
+    get "/", PageController, :index
+    live "/live", PageLive
+    get "/no-nested", PageController, :no_nested
   end
 
   # Other scopes may use custom stacks.

@@ -2,21 +2,23 @@ defmodule FormsWeb.PageLive do
   use FormsWeb, :live_view
 
   @impl Phoenix.LiveView
-  def mount(_params, _session, socket) do
-    {:ok, assign(socket, query: "", results: %{})}
+  def mount(params, session, socket) do
+    IO.inspect(params, label: :root_params)
+    IO.inspect(session, label: :root_session)
+    {:ok, assign(socket, id: socket.id, query: "", results: %{})}
   end
 
   @impl Phoenix.LiveView
   def render(assigns) do
     ~L"""
-    <h2>Root</h2>
+    <h3>Root</h3>
     <div x-data="{ open: false }">
       <button @click="open = !open" x-text="(open) ? 'Hide form' : 'Show form'"></button>
 
       <section class="phx-hero" x-show="open">
         <form phx-change="suggest" phx-submit="search">
           <input type="text" name="q" value="<%= @query %>" placeholder="Live dependency search" list="results" autocomplete="off"/>
-          <datalist id="root_results">
+          <datalist id="<%= "#{@id}_root_results" %>">
             <%= for {app, _vsn} <- @results do %>
               <option value="<%= app %>"><%= app %></option>
             <% end %>
@@ -25,11 +27,11 @@ defmodule FormsWeb.PageLive do
       </section>
     </div>
 
-    <h2>Component</h2>
-    <%= live_component @socket, FormsWeb.PageComponent, id: "page_component" %>
+    <h3>Component</h3>
+    <%= live_component @socket, FormsWeb.PageComponent, id: "#{@id}_page_live_page_component" %>
 
-    <h2>Nested</h2>
-    <%= live_render @socket, FormsWeb.PageNested, id: "page_nested" %>
+    <h3>Nested</h3>
+    <%= live_render @socket, FormsWeb.PageNested, id: "#{@id}_page_live_page_nested" %>
     """
   end
 

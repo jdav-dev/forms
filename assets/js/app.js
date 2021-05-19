@@ -48,7 +48,12 @@ window.liveSocket = liveSocket;
 
 liveSocket.enableDebug();
 
-window.resetConnection = () => {
-  liveSocket.disconnect();
-  setTimeout(() => liveSocket.connect(), 1000);
+window.resetConnection = (delay = 0) => {
+  console.log(`Disconnecting in ${delay} milliseconds`)
+  setTimeout(() => {
+    liveSocket.disconnect();
+    const timeout = 1000
+    console.log(`Reconnecting in ${timeout} milliseconds`)
+    setTimeout(() => liveSocket.connect(), timeout);
+  }, delay);
 };

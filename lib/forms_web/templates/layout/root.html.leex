@@ -14,10 +14,13 @@
       <section class="container">
         <nav role="navigation">
           <ul>
-            <li x-data><a href="#" @click="window.resetConnection()">Reset Connection</a></li>
+            <li><%= link "Live", to: Routes.live_path(@conn, FormsWeb.PageLive) %></li>
+            <li><%= link "No nested", to: Routes.page_path(@conn, :no_nested) %></li>
+            <li><%= link "Page", to: Routes.page_path(@conn, :index) %></li>
+            <li x-data><a href="#" @click="window.resetConnection(3000)">Reset Connection</a></li>
           </ul>
         </nav>
-        <a href="https://phoenixframework.org/" class="phx-logo">
+        <a href="/" class="phx-logo">
           <img src="<%= Routes.static_path(@conn, "/images/phoenix.png") %>" alt="Phoenix Framework Logo"/>
         </a>
       </section>

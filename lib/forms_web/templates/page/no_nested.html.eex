@@ -1,0 +1,14 @@
+<h2>Side</h2>
+<%= live_render @conn, FormsWeb.PageNested, id: "1" %>
+
+<h2>By</h2>
+<%= live_render @conn, FormsWeb.PageNested, id: "2" %>
+
+<h2>Side</h2>
+<%= live_render @conn, FormsWeb.PageNested, id: "3" %>
+
+<h2>By</h2>
+<%= live_render @conn, FormsWeb.PageNested, id: "2" %>
+
+<h2>Side</h2>
+<%= live_render @conn, FormsWeb.PageNested, id: "3" %>

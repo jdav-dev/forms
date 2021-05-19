@@ -2,8 +2,10 @@ defmodule FormsWeb.PageNested do
   use FormsWeb, :live_view
 
   @impl Phoenix.LiveView
-  def mount(_params, _session, socket) do
-    {:ok, assign(socket, query: "", results: %{})}
+  def mount(params, session, socket) do
+    IO.inspect(params, label: :nested_params)
+    IO.inspect(session, label: :nested_session)
+    {:ok, assign(socket, id: socket.id, query: "", results: %{})}
   end
 
   @impl Phoenix.LiveView
@@ -15,7 +17,7 @@ defmodule FormsWeb.PageNested do
       <section class="phx-hero" x-show="open">
         <form phx-change="suggest" phx-submit="search">
           <input type="text" name="q" value="<%= @query %>" placeholder="Live dependency search" list="results" autocomplete="off"/>
-          <datalist id="page_nested_results">
+          <datalist id="<%= "#{@id}_nested_results" %>">
             <%= for {app, _vsn} <- @results do %>
               <option value="<%= app %>"><%= app %></option>
             <% end %>
@@ -28,7 +30,7 @@ defmodule FormsWeb.PageNested do
 
   @impl Phoenix.LiveView
   def handle_event("suggest", %{"q" => query}, socket) do
-    IO.inspect(query, label: :nested)
+    IO.inspect(query, label: :nested_query)
     {:noreply, assign(socket, results: search(query), query: query)}
   end
 

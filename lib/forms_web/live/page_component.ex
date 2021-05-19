@@ -15,7 +15,7 @@ defmodule FormsWeb.PageComponent do
       <section class="phx-hero" x-show="open">
         <form phx-target="<%= @myself %>" phx-change="suggest" phx-submit="search">
           <input type="text" name="q" value="<%= @query %>" placeholder="Live dependency search" list="results" autocomplete="off"/>
-          <datalist id="page_component_results">
+          <datalist id="<%= "#{@id}_page_component_results" %>">
             <%= for {app, _vsn} <- @results do %>
               <option value="<%= app %>"><%= app %></option>
             <% end %>

@@ -1,0 +1,5 @@
+<h2>Nested</h2>
+<%= live_render @conn, FormsWeb.PageNested, id: "page_page_nested" %>
+
+<h2>Live</h2>
+<%= live_render @conn, FormsWeb.PageLive, id: "page_page_live" %>
