@@ -14,6 +14,12 @@
       <section class="container">
         <nav role="navigation">
           <ul>
+            <li><%= link "For (no variable)", to: Routes.live_path(@conn, FormsWeb.ForLiveNoVariable) %></li>
+            <li><%= link "For (functions)", to: Routes.live_path(@conn, FormsWeb.ForLiveFunctions) %></li>
+            <li><%= link "For (stateful components)", to: Routes.live_path(@conn, FormsWeb.ForLiveStatefulComponents) %></li>
+            <li><%= link "For (stateful components with variable)", to: Routes.live_path(@conn, FormsWeb.ForLiveStatefulComponentsWithVariable) %></li>
+            <li><%= link "For (stateless components)", to: Routes.live_path(@conn, FormsWeb.ForLiveStatelessComponents) %></li>
+            <li><%= link "For (variable)", to: Routes.live_path(@conn, FormsWeb.ForLiveVariable) %></li>
             <li><%= link "Live", to: Routes.live_path(@conn, FormsWeb.PageLive) %></li>
             <li><%= link "No nested", to: Routes.page_path(@conn, :no_nested) %></li>
             <li><%= link "Page", to: Routes.page_path(@conn, :index) %></li>

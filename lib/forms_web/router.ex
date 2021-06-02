@@ -20,6 +20,12 @@ defmodule FormsWeb.Router do
     get "/", PageController, :index
     live "/live", PageLive
     get "/no-nested", PageController, :no_nested
+    live "/for-no-variable", ForLiveNoVariable
+    live "/for-functions", ForLiveFunctions
+    live "/for-stateful-components", ForLiveStatefulComponents
+    live "/for-stateful-components-with-variable", ForLiveStatefulComponentsWithVariable
+    live "/for-stateless-components", ForLiveStatelessComponents
+    live "/for-variable", ForLiveVariable
   end
 
   # Other scopes may use custom stacks.
