@@ -20,9 +20,14 @@
             <li><%= link "For (stateful components with variable)", to: Routes.live_path(@conn, FormsWeb.ForLiveStatefulComponentsWithVariable) %></li>
             <li><%= link "For (stateless components)", to: Routes.live_path(@conn, FormsWeb.ForLiveStatelessComponents) %></li>
             <li><%= link "For (variable)", to: Routes.live_path(@conn, FormsWeb.ForLiveVariable) %></li>
+            <li><%= link "Function components", to: Routes.live_path(@conn, FormsWeb.FunctionComponents) %></li>
+            <li><%= link "Function components (assigns)", to: Routes.live_path(@conn, FormsWeb.FunctionComponentsAssigns) %></li>
+            <li><%= link "Function components (variables)", to: Routes.live_path(@conn, FormsWeb.FunctionComponentsVariables) %></li>
             <li><%= link "Live", to: Routes.live_path(@conn, FormsWeb.PageLive) %></li>
             <li><%= link "No nested", to: Routes.page_path(@conn, :no_nested) %></li>
             <li><%= link "Page", to: Routes.page_path(@conn, :index) %></li>
+            <li><%= link "Render no variable", to: Routes.live_path(@conn, FormsWeb.RenderNoVariable) %></li>
+            <li><%= link "Variable in render", to: Routes.live_path(@conn, FormsWeb.VariableInRender) %></li>
             <li x-data><a href="#" @click="window.resetConnection(3000)">Reset Connection</a></li>
           </ul>
         </nav>

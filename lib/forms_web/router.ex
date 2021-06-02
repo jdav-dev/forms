@@ -26,6 +26,11 @@ defmodule FormsWeb.Router do
     live "/for-stateful-components-with-variable", ForLiveStatefulComponentsWithVariable
     live "/for-stateless-components", ForLiveStatelessComponents
     live "/for-variable", ForLiveVariable
+    live "/function-components", FunctionComponents
+    live "/function-components-assigns", FunctionComponentsAssigns
+    live "/function-components-variables", FunctionComponentsVariables
+    live "/render-no-variable", RenderNoVariable
+    live "/variable-in-render", VariableInRender
   end
 
   # Other scopes may use custom stacks.
